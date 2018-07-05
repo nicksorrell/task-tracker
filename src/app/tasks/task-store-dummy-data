@@ -1,0 +1,67 @@
+tasks = [
+    new Task(3, 'Code Repository', {
+        background: `The Government requires the DL DART Team to build and maintain
+        a code repository in accordance with provided requirements.`,
+        requirements: [
+          'None'
+        ]},
+        TaskStatus.DEFERRED, '2016-09-23', '2018-05-03', ['Vaughter']),
+
+    new Task(2, 'Army Resource Validator', {
+      background: `The Army Resource Validator and SCORM validation tools are outdated and require
+      modifications to function on current computer configurations.`,
+      requirements: [
+        'Update Army SCORM validation tools to function on current computer configurations.',
+        'Provide LOE to recreate tools as web applications.'
+      ]},
+      TaskStatus.IN_PROGRESS, '2018-01-09', '', ['Thomann']),
+
+    new Task(2, 'Business Rules and Best Practices Guide for SCORM IMI', {
+      background: `The existing BRBP document needs to be updated to capture additional requirements
+      and practices originated since the document was published.`,
+      requirements: [
+        'Update BRBP documentation using DART knowledge and materials',
+        'Create a process for document version control'
+      ]},
+      TaskStatus.DEFERRED, '2018-01-10', '', ['Sorrell']),
+
+    new Task(3, 'SCORM Utility and Validation Tools Report', {
+      background: `The Governement needs to know if there are any other SCORM-related tools aside from the Army test tools
+      that can assist in validating SCORM IMI's adherence to business rules.`,
+      requirements: [
+        'Identify and report on utility tools that can assist in validating SCORM IMI\'s adherence to business rules'
+      ]},
+      TaskStatus.IN_PROGRESS, '2018-06-14', '', ['Sorrell', 'Dinkle']),
+
+    new Task(2, 'AHCAS Content Diagnostic Report', {
+      background: `ADLPA is developing SCORM IMI for a small base of 200 learners and is experiencing difficulties when
+      attempting to run content on the ALMS for validation.`,
+      requirements: [
+        'Diagnose and report on issues within the AHCAS module and provide recommended solutions.'
+      ]},
+      TaskStatus.IN_PROGRESS, '2018-06-14', '', ['Sorrell']),
+
+    new Task(1, 'Top 30 Course Dashboard', {
+      background: `Army University requires data surrounding the top 30 most-used courses.`,
+      requirements: [
+        'Provide a dashboard presentation of data using active participation data from RightNow CX.',
+        'Update dashboard data to include other item information aggregated from other sources.'
+      ]},
+      TaskStatus.IN_PROGRESS, '2018-06-14', '', ['Thomann', 'Dinkle']),
+
+    new Task(2, 'Draft BRBP Application to DLC1 Sample Module', {
+      background: `The Government requires a test run of the BRBP checklist developed as part of the SCORM IMI BRBP task
+      to validate its efficacy and usage speed.`,
+      requirements: [
+        'Validate DLC1 sample module against draft BRBP checklist.'
+      ]},
+      TaskStatus.ON_HOLD, '2018-04-20', '', ['Dinkle']),
+
+    new Task(2, 'SMS Module Redevelopment', {
+      background: `The ALDPA requires all criticality errors found during PL DLS testing of SMS content be fixed prior
+      to fielding.`,
+      requirements: [
+        'Redevelop SMS modules as necessary using Adobe Captivate once the Government has made the software available.'
+      ]},
+      TaskStatus.ON_HOLD, '2018-04-20', '', ['Dinkle']),
+  ];

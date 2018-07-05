@@ -1,0 +1,27 @@
+.panel {
+    border: 1px solid #888;
+    border-radius: 2px;
+    padding: 0;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.panel:hover {
+    box-shadow: 0 0 3px orange;
+    background: lightyellow;
+    color: #888;
+}
+
+.panel-header {
+    background: #007bff;
+    padding: 5px;
+    color: #fff;
+    text-shadow: 1px 1px 0 #000;
+    font-weight: bold;
+    box-shadow: 0 1px 1px #000;
+}
+
+.panel-body {
+    padding: 10px;
+}

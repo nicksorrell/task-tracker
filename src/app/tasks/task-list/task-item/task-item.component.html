@@ -1,0 +1,9 @@
+<div class="panel">
+    <div class="panel-header"
+         [ngClass]="{'bg-success' : task.status === 'Complete', 'bg-warning' : task.status === 'On Hold', 'bg-secondary' : task.status === 'Deferred'}">
+        {{task.name}} ({{task.status}})
+    </div>
+    <div class="panel-body">
+        {{task.description.background}}
+    </div>
+</div>

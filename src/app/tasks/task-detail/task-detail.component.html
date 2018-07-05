@@ -1,0 +1,58 @@
+<h4>Task Details</h4>
+<hr>
+<div class="panel">
+  <div class="panel-header"
+       [ngClass]="{'bg-success' : task.status === 'Complete', 'bg-warning' : task.status === 'On Hold', 'bg-secondary' : task.status === 'Deferred'}">
+    {{task.name}} ({{task.status}})
+  </div>
+
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-4">
+        <b>POC:</b>
+        <p *ngFor="let poc of task.POC">{{poc}}</p>
+      </div>
+
+      <div class="col-4">
+        <b>Date Opened:</b>
+        <p>{{task.dateOpened}}</p>
+      </div>
+
+      <div class="col-4">
+          <b>Date Closed:</b>
+          <p>{{task.dateClosed}}</p>
+        </div>
+    </div>
+
+    <hr>
+    <h5>Background</h5>
+    <p>{{task.description.background}}</p>
+    <h5>Requirements</h5>
+    <ul>
+      <li *ngFor="let requirement of task.description.requirements">{{requirement}}</li>
+    </ul>
+
+  </div>
+
+  <div class="panel-controls">
+    <button class="btn btn-warning"
+            *ngIf="task.status === 'In Progress'"
+            (click)="setSuspended()">Suspend Task</button>
+
+    <button class="btn btn-secondary"
+            *ngIf="task.status === 'On Hold'"
+            (click)="setDeferred()">Defer Task</button>
+
+    <button class="btn btn-success"
+            *ngIf="task.status === 'In Progress'"
+            (click)="setComplete()">Complete Task</button>
+
+    <button class="btn btn-primary"
+            *ngIf="task.status !== 'In Progress'"
+            (click)="setInProgress()">Reactivate Task</button>
+  </div>
+</div>
+<hr>
+<button class="btn btn-danger">Delete Task</button>
+<button class="btn btn-primary"
+        (click)="editTask()">Edit Task</button>
