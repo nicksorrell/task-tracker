@@ -133,4 +133,11 @@ export class TaskEditComponent implements OnInit {
     this.router.navigate(['..'], {relativeTo: this.route});
   }
 
+  deleteTask() {
+    if ( confirm('Are you sure you want to delete this task?') ) {
+      this.taskStoreService.removeTask(this.task.id);
+      this.router.navigate(['..'], {relativeTo: this.route});
+    }
+  }
+
 }

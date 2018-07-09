@@ -1,4 +1,12 @@
-<h4>Task Details</h4>
+<div class="row">
+  <div class="col-9">
+    <h4>Task Details</h4>
+  </div>
+  <div class="col-3">
+    <button class="btn btn-sm btn-primary float-right"
+      (click)="editTask()">Edit Task</button>
+  </div>
+</div>
 <hr>
 <div class="panel">
   <div class="panel-header"
@@ -35,27 +43,21 @@
     </ul>
 
   </div>
-
-  <div class="panel-controls">
-    <button class="btn btn-warning"
-            *ngIf="task.status === 'In Progress'"
-            (click)="setSuspended()">Suspend Task</button>
-
-    <button class="btn btn-secondary"
-            *ngIf="task.status === 'On Hold'"
-            (click)="setDeferred()">Defer Task</button>
-
-    <button class="btn btn-success"
-            *ngIf="task.status === 'In Progress'"
-            (click)="setComplete()">Complete Task</button>
-
-    <button class="btn btn-primary"
-            *ngIf="task.status !== 'In Progress'"
-            (click)="setInProgress()">Reactivate Task</button>
-  </div>
 </div>
-<hr>
-<button class="btn btn-danger"
-        (click)="deleteTask()">Delete Task</button>
-<button class="btn btn-primary"
-        (click)="editTask()">Edit Task</button>
+<div class="panel-controls">
+  <button class="btn btn-warning"
+          *ngIf="task.status === 'In Progress'"
+          (click)="setSuspended()">Suspend Task</button>
+
+  <button class="btn btn-secondary"
+          *ngIf="task.status === 'On Hold'"
+          (click)="setDeferred()">Defer Task</button>
+
+  <button class="btn btn-success"
+          *ngIf="task.status === 'In Progress'"
+          (click)="setComplete()">Complete Task</button>
+
+  <button class="btn btn-primary"
+          *ngIf="task.status !== 'In Progress'"
+          (click)="setInProgress()">Reactivate Task</button>
+</div>

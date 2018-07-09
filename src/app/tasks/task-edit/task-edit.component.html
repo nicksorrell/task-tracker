@@ -1,4 +1,12 @@
-<h4>Editing Task</h4>
+<div class="row">
+  <div class="col-9">
+    <h4>{{editMode ? "Editing Task" : "Adding New Task"}}</h4>
+  </div>
+  <div class="col-3">
+    <button class="btn btn-sm btn-danger float-right"
+            (click)="deleteTask()">Delete Task</button>
+  </div>
+</div>
 <hr>
 <form [formGroup]="taskEditForm">
   <div class="row">
@@ -71,8 +79,10 @@
   <button class="btn btn-sm btn-default" (click)="onAddRequirement()">Add Requirement</button>
 </form>
 <hr>
-<button class="btn btn-warning right-space"
-        (click)="onCancelEdit()">Cancel</button>
-<button class="btn btn-primary"
-        (click)="onSaveTask()"
-        [disabled]="taskEditForm.invalid">Save Task</button>
+<button 
+  class="btn btn-primary right-space"
+  (click)="onSaveTask()"
+  [disabled]="taskEditForm.invalid">Save Task</button>
+<button 
+  class="btn btn-default"
+  (click)="onCancelEdit()">Cancel</button>
