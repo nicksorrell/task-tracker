@@ -103,4 +103,8 @@ export class TaskListComponent implements OnInit {
       )
     );
   }
+
+  addTask() {
+    this.router.navigate(['new'], {relativeTo: this.route});
+  }
 }

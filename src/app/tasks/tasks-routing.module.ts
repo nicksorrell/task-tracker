@@ -9,6 +9,7 @@ import { TaskDetailResolverService } from './task-detail-resolver.service';
 
 const appRoutes: Routes = [
     { path: 'tasks', component: TasksComponent, children: [
+        { path: 'new', component: TaskEditComponent },
         { path: ':id', component: TaskDetailComponent, resolve: { task: TaskDetailResolverService } },
         { path: ':id/edit', component: TaskEditComponent, resolve: { task: TaskDetailResolverService } },
         { path: '', component: TaskHomeComponent }

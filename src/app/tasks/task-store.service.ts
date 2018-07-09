@@ -27,7 +27,7 @@ export class TaskStoreService {
         'Update Army SCORM validation tools to function on current computer configurations.',
         'Provide LOE to recreate tools as web applications.'
       ]},
-      TaskStatus.IN_PROGRESS, '2018-01-09', '', ['Thomann']),
+      TaskStatus.IN_PROGRESS, '2018-01-09', '', ['Thomann', 'Sorrell']),
 
     new Task(3, 2, 'SMS Module Redevelopment', {
       background: `The ALDPA requires all criticality errors found during PL DLS testing of SMS content be fixed prior
@@ -56,25 +56,46 @@ export class TaskStoreService {
     this.activeTask.next(this.currentTask);
   }
 
-  setTaskComplete(index) {
+  setTaskComplete(id) {
     this.tasks[this.currentTaskIndex].status = TaskStatus.COMPLETE;
     this.tasks[this.currentTaskIndex].dateClosed = this.getCurrentDate();
     this.taskListUpdated.next(this.tasks);
   }
 
-  setTaskActive(index) {
+  setTaskActive(id) {
     this.tasks[this.currentTaskIndex].status = TaskStatus.IN_PROGRESS;
     this.tasks[this.currentTaskIndex].dateOpened = this.getCurrentDate();
     this.taskListUpdated.next(this.tasks);
   }
 
-  setTaskSuspended(index) {
+  setTaskSuspended(id) {
     this.tasks[this.currentTaskIndex].status = TaskStatus.ON_HOLD;
     this.taskListUpdated.next(this.tasks);
   }
 
-  setTaskDeferred(index) {
+  setTaskDeferred(id) {
     this.tasks[this.currentTaskIndex].status = TaskStatus.DEFERRED;
+    this.taskListUpdated.next(this.tasks);
+  }
+
+  addTask(data) {
+    this.tasks.push(data);
+    this.taskListUpdated.next(this.tasks);
+  }
+
+  updateTask(id, data) {
+    const theTask = this.tasks.filter(
+      task => task.id === id
+    )[0];
+    this.tasks[this.tasks.indexOf(theTask)] = data;
+    this.taskListUpdated.next(this.tasks);
+  }
+
+  removeTask(id) {
+    const theTask = this.tasks.filter(
+      task => task.id === id
+    )[0];
+    this.tasks.splice(this.tasks.indexOf(theTask), 1);
     this.taskListUpdated.next(this.tasks);
   }
 
@@ -88,5 +109,14 @@ export class TaskStoreService {
     } else {
       return true;
     }
+  }
+
+  getUniqueID() {
+    const taskIDs = [];
+    for (const task of this.tasks) {
+      taskIDs.push(task.id);
+    }
+    taskIDs.sort();
+    return (taskIDs[taskIDs.length - 1] + 1);
   }
 }
