@@ -4,6 +4,7 @@
   </div>
   <div class="col-3">
     <button class="btn btn-sm btn-danger float-right"
+            *ngIf="editMode"
             (click)="deleteTask()">Delete Task</button>
   </div>
 </div>
